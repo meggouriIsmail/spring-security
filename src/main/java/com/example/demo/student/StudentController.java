@@ -17,6 +17,11 @@ public class StudentController {
             new Student(2, "lmbrati"),
             new Student(3, "lmgcher")
     );
+
+    @GetMapping("")
+    public List<Student> getStudents() {
+        return STUDENTS;
+    }
     @GetMapping(path = "{studentId}")
     public Student getStudent(@PathVariable("studentId") Integer studentId){
         return STUDENTS.stream().filter(student -> studentId.equals(student.getStudentId()))
